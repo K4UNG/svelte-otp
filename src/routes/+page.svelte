@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import SvelteOtp from '$lib/components/SvelteOtp.svelte';
+</script>
+
+<main>
+	<SvelteOtp numOfInputs={6} separator="-" numberOnly={true} />
+</main>
+
+<style>
+	main {
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+	}
+</style>
