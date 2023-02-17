@@ -8,24 +8,15 @@
 	export let className: string;
 	export let num: boolean;
 
-	function keyUpHandler(e: KeyboardEvent) {
-		const key = e.key;
-		if (
-			!/[0-9]/.test(key) &&
-			num &&
-			key !== 'Backspace' &&
-			key !== 'ArrowLeft' &&
-			key !== 'ArrowRight'
-		)
-			return;
-		if ((key === 'Backspace' || key === 'ArrowLeft') && index !== 0) {
-			(inputs[index - 1] as HTMLInputElement).focus();
-		} else if (
-			(key !== 'Backspace' && index !== inputs.length - 1) ||
-			(key === 'ArrowRight' && index !== inputs.length - 1)
-		) {
-			(inputs[index + 1] as HTMLInputElement).focus();
-		}
+	let key: string;
+
+	function shiftFocus(key: string) {
+		if (!/[0-9]/.test(key) && num) return;
+		if (index !== inputs.length - 1) (inputs[index + 1] as HTMLInputElement).focus();
+	}
+
+	function keyDownHandler(e: KeyboardEvent) {
+		key = e.key;
 	}
 
 	function typeHandler(e: KeyboardEvent) {
@@ -43,6 +34,13 @@
 				const filtered = codes.filter((v) => !!v);
 				codes = [...filtered, ...Array(len - filtered.length).fill('')];
 			}
+			shiftFocus(key);
+		}
+	}
+
+	function keyUpHandler(e: KeyboardEvent) {
+		if (e.key === 'Backspace' && index !== 0) {
+			inputs[index - 1]?.focus();
 		}
 	}
 </script>
@@ -50,6 +48,7 @@
 <input
 	class={`${nostyle ? '' : 'default-input'} ${className}`}
 	bind:this={input}
+	on:keydown={keyDownHandler}
 	on:keyup={keyUpHandler}
 	on:keypress={typeHandler}
 	on:input={changeHandler}
