@@ -62,7 +62,7 @@
 		e.preventDefault();
 		const paste = e.clipboardData?.getData('text');
 		if (!paste) return;
-		const pasteValue = paste.slice(0, codes.length - index);
+		let pasteValue = paste.replace(num ? /[^0-9]/g : '', '').slice(0, codes.length - index);
 		const newCodes = [
 			...codes.slice(0, index),
 			...pasteValue.split(''),

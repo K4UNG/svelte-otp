@@ -39,7 +39,7 @@
 			style={inputStyle}
 			placeholder={placeholders[i]}
 		/>
-		{#if separator && i !== codes.length - 1 && (!onlyShowMiddleSeparator || (onlyShowMiddleSeparator && i === codes.length / 2 - 1 && i % 2 === 0))}
+		{#if separator && i !== codes.length - 1 && (!onlyShowMiddleSeparator || (onlyShowMiddleSeparator && i === codes.length / 2 - 1 && numOfInputs % 2 === 0))}
 			<span class={separatorClass} style={separatorStyle}>{separator}</span>
 		{/if}
 	{/each}
