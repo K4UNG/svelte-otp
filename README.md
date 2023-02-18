@@ -1,38 +1,106 @@
-# create-svelte
+# svelte-otp
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A simple lightweight OTP input component for svelte.
 
-## Creating a project
+# Installing
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+npm install @kaung/svelte-otp
 ```
 
-## Developing
+or
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```
+yarn add @kaung/svelte-otp
 ```
 
-## Building
+<br/>
+<br/>
 
-To create a production version of your app:
+# Usage
 
-```bash
-npm run build
+## Simplest form
+
+Getting started is as easy as importing the `SvelteOtp` component and just using it.
+
+<br/>
+
+```js
+<script>
+    import SvelteOtp from ‘@kaung/svelte-otp’;
+</script>
+
+<SvelteOtp />
 ```
 
-You can preview the production build with `npm run preview`.
+## Controlling the state
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+You can easily control the state of the value by binding it to the `value` prop.
+
+You can also change the number of inputs through the `numOfInputs` prop.
+
+<br/>
+
+```js
+<script>
+	import SvelteOtp from ‘@kaung/svelte-otp’;
+
+    let value = 'abc12'
+
+</script>
+
+<SvelteOtp numOfInputs={5} bind:value />
+```
+
+You can also restrict it to only accept numbers by adding the `numberOnly` attribute.
+
+Separators can be set through the `separator` prop. Placeholders can be added through `placeholder` prop.
+
+<br/>
+
+```js
+<script>
+    import SvelteOtp from ‘@kaung/svelte-otp’;
+
+    let value = '12';
+</script>
+
+<SvelteOtp
+    numberOnly
+    bind:value
+    separator="-"
+    placeholder="********"
+/>
+```
+
+## Customizing the look
+
+You can style the component however you want by passing one of `inputStyle`, `wrapperStyle`, `separatorStyle` or add custom class names through `inputClass`, `wrapperClass`, `separatorClass`. You can also disable all the default styling by adding the `disableDefaultStyle` attribute.
+
+Here's an example component, styled using [tailwindcss](https://tailwindcss.com/ 'Tailwind css framework')
+
+```js
+<SvelteOtp
+	inputClass="rounded-md bg-gray-200"
+	separatorClass="border-blue-700 text-3xl font-bold"
+	separator="-"
+/>
+```
+
+## Available Options
+
+| **Name**                | **Default Value** | **Description**                                             |
+| ----------------------- | ----------------- | ----------------------------------------------------------- |
+| numOfInputs             | 6                 | Quantity of input to show                                   |
+| value                   | ''                | The value of the input                                      |
+| separator               | ''                | Separator between the individual inputs                     |
+| onlyShowMiddleSeparator | false             | Only show one separator in the middle (numOfInputs % 2 = 0) |
+| placeholder             | ''                | Placeholder value for the inputs                            |
+| numberOnly              | false             | Restrict the values to numbers only                         |
+| disableDefaultStyle     | false             | Disable default styling of component                        |
+| wrapperClass            | ''                | Custom class to be added to the wrapper element             |
+| inputClass              | ''                | Custom class to be added to the individual inputs           |
+| separatorClass          | ''                | Custom class to be added to the separators                  |
+| wrapperStyle            | ''                | Inline style to be added to the wrapper element             |
+| inputStyle              | ''                | Inline style to be added to the individual inputs           |
+| separatorStyle          | ''                | Inline style to be added to the separators                  |
