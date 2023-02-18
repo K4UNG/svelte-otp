@@ -2,6 +2,11 @@
 
 A simple lightweight OTP input component for svelte.
 
+- [Documentation](https://k4ung-svelte-otp.netlify.app/usage)
+- [Playground](https://k4ung-svelte-otp.netlify.app/playground)
+
+<br/>
+
 # Installing
 
 ```

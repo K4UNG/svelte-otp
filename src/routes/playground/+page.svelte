@@ -13,6 +13,11 @@
 	let numberOnly = false;
 </script>
 
+<svelte:head>
+	<title>Svelte OTP | Playground</title>
+	<meta name="description" content="Svelte OTP playground. Try it out online." />
+</svelte:head>
+
 <main class="p-4 grid grid-cols-1 lg:grid-cols-5">
 	<div>
 		<label for="numOfInputs">Number of Inputs ({numOfInputs})</label><br />

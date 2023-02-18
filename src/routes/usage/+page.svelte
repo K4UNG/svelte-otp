@@ -21,6 +21,11 @@
 	export let data: PageData;
 </script>
 
+<svelte:head>
+	<title>Svelte OTP | Usage</title>
+	<meta name="description" content="A simple, lightweight Svelte OTP input component." />
+</svelte:head>
+
 <main class="p-4 content">
 	{@html data.first}
 	<div class="flex justify-center mt-4 mb-8">
