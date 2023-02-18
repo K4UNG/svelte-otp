@@ -7,6 +7,8 @@
 	export let nostyle: boolean;
 	export let className: string;
 	export let num: boolean;
+	export let style: string;
+	export let placeholder: string;
 
 	let key: string;
 
@@ -78,7 +80,9 @@
 	on:keypress={typeHandler}
 	on:input={changeHandler}
 	on:paste={pasteHandler}
+	{style}
 	{value}
+	{placeholder}
 />
 
 <style>

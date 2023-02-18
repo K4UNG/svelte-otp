@@ -1,3 +1,62 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+button,
+a {
+	-webkit-tap-highlight-color: transparent;
+}
+
+@layer base {
+	.content a {
+		@apply text-blue-600 underline;
+	}
+
+	.content h1 {
+		@apply text-3xl font-semibold mb-4;
+	}
+
+	.content h2 {
+		@apply text-2xl font-semibold mt-4 mb-2;
+	}
+
+	.content pre {
+		@apply bg-gray-200 rounded-lg px-2 inline-block w-full  text-sm;
+	}
+
+	.content pre code {
+		@apply bg-gray-200;
+	}
+
+	.content p {
+		@apply my-2;
+	}
+
+	.content hr {
+		@apply py-4;
+	}
+
+	.content p code {
+		@apply bg-gray-200 text-gray-700 rounded-md p-1;
+	}
+
+	.content table {
+		@apply text-sm text-left text-gray-500 border;
+	}
+
+	.content thead {
+		@apply text-xs text-gray-700 uppercase bg-gray-50;
+	}
+
+	.content th {
+		@apply px-6 py-3;
+	}
+
+	.content td {
+		@apply px-6 py-4;
+	}
+
+	.content tr {
+		@apply bg-gray-50 border-b;
+	}
+}
