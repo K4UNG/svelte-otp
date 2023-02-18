@@ -21,7 +21,15 @@
 <main class="p-4 grid grid-cols-1 lg:grid-cols-5">
 	<div>
 		<label for="numOfInputs">Number of Inputs ({numOfInputs})</label><br />
-		<input id="numOfInputs" type="range" step="1" min={1} max={12} bind:value={numOfInputs} /><br />
+		<input
+			id="numOfInputs"
+			type="range"
+			step="1"
+			min={1}
+			max={12}
+			bind:value={numOfInputs}
+			on:input={() => (value = '')}
+		/><br />
 		<label for="placeholder">Placeholder</label><br />
 		<input id="placeholder" type="text" bind:value={placeholder} /><br />
 		<label for="separator">Separator</label><br />

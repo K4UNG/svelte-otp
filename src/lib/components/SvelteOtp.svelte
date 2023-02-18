@@ -15,7 +15,10 @@
 	export let placeholder = '';
 	export let onlyShowMiddleSeparator = false;
 
-	let codes: string[] = [...value.split(''), ...Array(numOfInputs - value.length).fill('')];
+	let codes: string[] = [
+		...value.split(''),
+		...Array(Math.abs(numOfInputs - value.length)).fill('')
+	];
 	let inputs: (null | HTMLInputElement)[] = Array(numOfInputs).fill(null);
 	$: placeholders =
 		placeholder.length < numOfInputs
