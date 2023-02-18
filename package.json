@@ -1,8 +1,9 @@
 {
 	"name": "@k4ung/svelte-otp",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"license": "MIT",
 	"private": false,
+	"homepage": "https://k4ung-svelte-otp.netlify.app/usage",
 	"files": [
 		"dist"
 	],
