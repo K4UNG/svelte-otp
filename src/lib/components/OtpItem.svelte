@@ -11,12 +11,19 @@
 	let key: string;
 
 	function shiftFocus(key: string) {
-		if (!/[0-9]/.test(key) && num) return;
+		if (
+			(!/[0-9]/.test(key) && num && key) ||
+			key === 'ArrowRight' ||
+			key === 'ArrowLeft' ||
+			key === 'Backspace'
+		)
+			return;
 		if (index !== inputs.length - 1) (inputs[index + 1] as HTMLInputElement).focus();
 	}
 
 	function keyDownHandler(e: KeyboardEvent) {
 		key = e.key;
+		if (value.length >= 1 && !e.ctrlKey) shiftFocus(key);
 	}
 
 	function typeHandler(e: KeyboardEvent) {
@@ -39,9 +46,24 @@
 	}
 
 	function keyUpHandler(e: KeyboardEvent) {
-		if (e.key === 'Backspace' && index !== 0) {
+		if ((e.key === 'Backspace' || e.key === 'ArrowLeft') && index !== 0) {
 			inputs[index - 1]?.focus();
+		} else if (e.key === 'ArrowRight' && index !== inputs.length - 1) {
+			inputs[index + 1]?.focus();
 		}
+	}
+
+	function pasteHandler(e: ClipboardEvent) {
+		e.preventDefault();
+		const paste = e.clipboardData?.getData('text');
+		if (!paste) return;
+		const pasteValue = paste.slice(0, codes.length - index);
+		const newCodes = [
+			...codes.slice(0, index),
+			...pasteValue.split(''),
+			...codes.slice(index + pasteValue.length)
+		];
+		codes = newCodes;
 	}
 </script>
 
@@ -52,6 +74,7 @@
 	on:keyup={keyUpHandler}
 	on:keypress={typeHandler}
 	on:input={changeHandler}
+	on:paste={pasteHandler}
 	{value}
 />
 
