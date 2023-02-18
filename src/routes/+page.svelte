@@ -3,7 +3,7 @@
 </script>
 
 <main>
-	<SvelteOtp numOfInputs={6} separator="-" />
+	<SvelteOtp numOfInputs={6} separator="-" numberOnly />
 </main>
 
 <style>

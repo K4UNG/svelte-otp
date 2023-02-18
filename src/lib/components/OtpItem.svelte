@@ -22,6 +22,9 @@
 	}
 
 	function keyDownHandler(e: KeyboardEvent) {
+		if (e.ctrlKey && e.key === 'z') {
+			e.preventDefault();
+		}
 		key = e.key;
 		if (value.length >= 1 && !e.ctrlKey) shiftFocus(key);
 	}
@@ -38,7 +41,7 @@
 			value = val;
 			if (!val) {
 				const len = codes.length;
-				const filtered = codes.filter((v) => !!v);
+				const filtered = codes.filter((_, i) => i !== index);
 				codes = [...filtered, ...Array(len - filtered.length).fill('')];
 			}
 			shiftFocus(key);
