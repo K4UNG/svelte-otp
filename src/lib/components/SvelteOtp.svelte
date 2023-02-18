@@ -1,7 +1,7 @@
 <script lang="ts">
 	import OtpItem from './OtpItem.svelte';
 
-	export let numOfInputs: number;
+	export let numOfInputs: number = 6;
 	export let value = '';
 	export let separator = '';
 	export let disableDefaultStyle = false;
