@@ -21,15 +21,15 @@ a {
 	}
 
 	.content pre {
-		@apply bg-gray-200 rounded-lg px-2 inline-block w-full  text-sm;
+		@apply bg-gray-100 rounded-lg px-2 inline-block w-full  text-sm;
 	}
 
 	.content pre code {
-		@apply bg-gray-200;
+		@apply bg-gray-100;
 	}
 
 	.content p {
-		@apply my-2;
+		@apply my-4;
 	}
 
 	.content hr {
@@ -37,7 +37,7 @@ a {
 	}
 
 	.content p code {
-		@apply bg-gray-200 text-gray-700 rounded-md p-1;
+		@apply bg-gray-100 text-gray-700 rounded-md p-1;
 	}
 
 	.content table {

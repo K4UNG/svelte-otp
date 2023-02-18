@@ -40,10 +40,11 @@
 			inputClass="rounded-md bg-gray-200"
 			separatorClass="border-blue-700 text-3xl font-bold"
 			separator="-"
-			onlyShowMiddleSeparator
 		/>
 	</div>
-	{@html data.fifth}
+	<div class="overflow-x-scroll">
+		{@html data.fifth}
+	</div>
 </main>
 
 <style>

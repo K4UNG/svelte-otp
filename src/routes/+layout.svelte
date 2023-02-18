@@ -12,9 +12,11 @@
 	$: pathname = $page.url.pathname;
 </script>
 
-<nav class="p-4 border-b border-gray-400 flex items-center justify-between sticky top-0 bg-white">
+<nav
+	class="p-4 border-b border-gray-400 flex items-center justify-between bg-white md:justify-center z-30 sticky top-0"
+>
 	<a href="/usage" class="font-semibold text-xl">svelte-<span class="text-blue-600">otp</span></a>
-	<button on:click={() => (drawer = true)}>
+	<button on:click={() => (drawer = true)} class="md:hidden">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<path d="M3 6H21V8H3V6ZM3 11H21V13H3V11ZM3 16H21V18H3V16Z" fill="black" />
 		</svg>
@@ -22,12 +24,12 @@
 	{#if drawer}
 		<div
 			transition:fade={{ duration: 100 }}
-			class="fixed bg-black bg-opacity-40 top-0 left-0 right-0 bottom-0"
+			class="fixed bg-black bg-opacity-40 top-0 left-0 right-0 bottom-0 md:hidden"
 			on:click={hideDrawer}
 			on:keypress={hideDrawer}
 		/>
 		<ul
-			class="fixed bg-white min-h-screen w-2/3 right-0 top-0 p-8"
+			class="fixed bg-white min-h-screen w-2/3 right-0 top-0 p-8 md:hidden"
 			in:fly={{ duration: 100, x: 200 }}
 			out:fly={{ duration: 100, x: 200 }}
 		>
@@ -50,13 +52,24 @@
 			<li class={`py-2 font-semibold text-lg ${pathname === '/usage' ? '' : 'text-gray-400'}`}>
 				<a on:click={hideDrawer} href="/usage">Usage</a>
 			</li>
-			<li class={`py-2 font-semibold text-lg ${pathname === '/demo' ? '' : 'text-gray-400'}`}>
-				<a on:click={hideDrawer} href="/demo">Demo</a>
-			</li>
 			<li class={`py-2 font-semibold text-lg ${pathname === '/playground' ? '' : 'text-gray-400'}`}>
 				<a on:click={hideDrawer} href="/playground">Playground</a>
 			</li>
 		</ul>
 	{/if}
 </nav>
-<slot />
+<div class="md:grid grid-cols-6">
+	<div>
+		<ul class="p-4 sticky top-16 border-r border-gray-400 min-h-screen hidden md:block">
+			<li class={`py-2 font-semibold text-lg ${pathname === '/usage' ? '' : 'text-gray-400'}`}>
+				<a on:click={hideDrawer} href="/usage">Usage</a>
+			</li>
+			<li class={`py-2 font-semibold text-lg ${pathname === '/playground' ? '' : 'text-gray-400'}`}>
+				<a on:click={hideDrawer} href="/playground">Playground</a>
+			</li>
+		</ul>
+	</div>
+	<div class="col-span-5">
+		<slot />
+	</div>
+</div>
