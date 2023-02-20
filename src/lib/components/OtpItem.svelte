@@ -40,7 +40,7 @@
 	function changeHandler(e: Event) {
 		const val = (e.target as HTMLInputElement).value;
 		if (/[0-9]/.test(val) || !num || !val) {
-			value = val;
+			value = val[0];
 			if (!val) {
 				const len = codes.length;
 				const filtered = codes.filter((_, i) => i !== index);
