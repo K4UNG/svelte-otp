@@ -1,6 +1,6 @@
 {
 	"name": "@k4ung/svelte-otp",
-	"version": "0.0.4",
+	"version": "0.0.7",
 	"license": "MIT",
 	"private": false,
 	"homepage": "https://k4ung-svelte-otp.netlify.app/usage",
@@ -10,14 +10,14 @@
 	"exports": {
 		".": {
 			"types": "./dist/SvelteOtp.svelte.d.ts",
-			"default": "./dist/components/SvelteOtp.svelte"
+			"svelte": "./dist/components/SvelteOtp.svelte"
 		}
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/K4UNG/svelte-otp"
 	},
-	"svelte": "./dist/SvelteOtp.svelte.d.ts",
+	"svelte": "./dist/components/SvelteOtp.svelte",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
