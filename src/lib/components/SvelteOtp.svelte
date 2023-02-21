@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { afterUpdate } from 'svelte';
 	import OtpItem from './OtpItem.svelte';
 
 	export let numOfInputs: number = 6;
@@ -16,10 +17,18 @@
 	export let onlyShowMiddleSeparator = false;
 
 	let codes: string[] = [
-		...value.split(''),
-		...Array(Math.abs(numOfInputs - value.length)).fill('')
+		...value.slice(0, numOfInputs).split(''),
+		...Array(numOfInputs <= value.length ? 0 : numOfInputs - value.length).fill('')
 	];
 	let inputs: (null | HTMLInputElement)[] = Array(numOfInputs).fill(null);
+
+	afterUpdate(() => {
+		codes = [
+			...value.slice(0, numOfInputs).split(''),
+			...Array(numOfInputs <= value.length ? 0 : numOfInputs - value.length).fill('')
+		];
+	});
+
 	$: placeholders =
 		placeholder.length < numOfInputs
 			? [...placeholder.split(''), ...Array(numOfInputs - placeholder.length).fill('')]

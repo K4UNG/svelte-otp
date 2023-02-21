@@ -20,13 +20,15 @@
 
 <main class="p-4 grid grid-cols-1 lg:grid-cols-5">
 	<div>
+		<label for="value">Value</label><br />
+		<input bind:value id="value" />
 		<label for="numOfInputs">Number of Inputs ({numOfInputs})</label><br />
 		<input
 			id="numOfInputs"
 			type="range"
 			step="1"
 			min={1}
-			max={12}
+			max={10}
 			bind:value={numOfInputs}
 			on:input={() => (value = '')}
 		/><br />

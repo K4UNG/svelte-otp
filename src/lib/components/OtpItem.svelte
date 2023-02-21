@@ -20,6 +20,10 @@
 			key === 'Backspace'
 		)
 			return;
+		if (value === ' ') {
+			value = '';
+			return;
+		}
 		if (index !== inputs.length - 1) (inputs[index + 1] as HTMLInputElement).focus();
 	}
 
@@ -40,7 +44,15 @@
 	function changeHandler(e: Event) {
 		const val = (e.target as HTMLInputElement).value;
 		if (/[0-9]/.test(val) || !num || !val) {
-			value = val[0];
+			codes = codes.map((c, i) => {
+				if (i < index) {
+					return c === '' ? ' ' : c;
+				} else if (i === index) {
+					return val[0];
+				}
+				return c;
+			});
+			// value = val[0];
 			if (!val) {
 				const len = codes.length;
 				const filtered = codes.filter((_, i) => i !== index);

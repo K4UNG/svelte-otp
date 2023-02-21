@@ -1,6 +1,6 @@
 {
 	"name": "@k4ung/svelte-otp",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"license": "MIT",
 	"private": false,
 	"homepage": "https://k4ung-svelte-otp.netlify.app/usage",
@@ -54,5 +54,11 @@
 		"highlight.js": "^11.7.0",
 		"marked": "^4.2.12",
 		"svelte": "^3.54.0"
-	}
+	},
+	"keywords": [
+		"svelte",
+		"svelte-kit",
+		"otp",
+		"component"
+	]
 }
