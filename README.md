@@ -10,13 +10,13 @@ A simple lightweight OTP input component for svelte.
 # Installing
 
 ```
-npm install @kaung/svelte-otp
+npm install @k4ung/svelte-otp
 ```
 
 or
 
 ```
-yarn add @kaung/svelte-otp
+yarn add @k4ung/svelte-otp
 ```
 
 <br/>
@@ -32,7 +32,7 @@ Getting started is as easy as importing the `SvelteOtp` component and just using
 
 ```js
 <script>
-    import SvelteOtp from ‘@kaung/svelte-otp’;
+    import SvelteOtp from ‘@k4ung/svelte-otp’;
 </script>
 
 <SvelteOtp />
@@ -48,7 +48,7 @@ You can also change the number of inputs through the `numOfInputs` prop.
 
 ```js
 <script>
-	import SvelteOtp from ‘@kaung/svelte-otp’;
+	import SvelteOtp from ‘@k4ung/svelte-otp’;
 
     let value = 'abc12'
 
@@ -65,7 +65,7 @@ Separators can be set through the `separator` prop. Placeholders can be added th
 
 ```js
 <script>
-    import SvelteOtp from ‘@kaung/svelte-otp’;
+    import SvelteOtp from ‘@k4ung/svelte-otp’;
 
     let value = '12';
 </script>

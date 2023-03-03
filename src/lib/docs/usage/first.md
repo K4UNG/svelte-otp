@@ -1,13 +1,13 @@
 # Installing
 
 ```
-npm install @kaung/svelte-otp
+npm install @k4ung/svelte-otp
 ```
 
 or
 
 ```
-yarn add @kaung/svelte-otp
+yarn add @k4ung/svelte-otp
 ```
 
 <br/>
@@ -23,7 +23,7 @@ Getting started is as easy as importing the `SvelteOtp` component and just using
 
 ```js
 <script>
-    import SvelteOtp from ‘@kaung/svelte-otp’;
+    import SvelteOtp from ‘@k4ung/svelte-otp’;
 </script>
 
 <SvelteOtp />
