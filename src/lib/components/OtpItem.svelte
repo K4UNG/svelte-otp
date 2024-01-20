@@ -11,6 +11,7 @@
 	export let placeholder: string;
 
 	let key: string;
+	let inputType: string = num ? "number" : "text"
 
 	function shiftFocus(key: string) {
 		if (
@@ -95,6 +96,7 @@
 	{style}
 	{value}
 	{placeholder}
+	type="{inputType}"
 />
 
 <style>
